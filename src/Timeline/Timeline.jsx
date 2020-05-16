@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     TimelineContainer,
     TimelineItem,
-    ItemCircle,
     ItemDescription,
     TimelineItemContainer
 } from './Styles';
 
 import ItemLine from './ItemLine/ItemLine';
+import ItemMilestone from './ItemMilestone/ItemMilestone';
+
 
 export default function Timeline({ status, timelineHeight, checkedStatusIndex, lastStatusIndex }) {
     const itens = status.map((item, index) => {
@@ -22,8 +23,8 @@ export default function Timeline({ status, timelineHeight, checkedStatusIndex, l
         return (
             <TimelineItemContainer key={index}>
                 <TimelineItem height={timelineHeight} final={isLastItem}>
-                    <ItemCircle isChecked={itemShouldBeChecked} transitionDelay={itemTransitionDelay} />
-                    
+                    <ItemMilestone isChecked={itemShouldBeChecked} transitionDelay={itemTransitionDelay} />
+
                     {!isLastItem && <ItemLine isChecked={lineShouldBeChecked} transitionDelay={lineTransitionDelay} />}
                 </TimelineItem>
                 <ItemDescription

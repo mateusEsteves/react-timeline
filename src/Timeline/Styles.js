@@ -27,14 +27,6 @@ export const TimelineItem = styled.div`
     grid-area: item;
 `;
 
-export const ItemCircle = styled.div`
-    border-radius: 360px;
-    border: solid gray 3px;
-    border-color: ${props => props.isChecked ? "blue" : "gray"};
-    transition: border-color 1s;
-    transition-delay: ${props => `${props.transitionDelay}s`};
-`;
-
 export const ItemDescription = styled.p`
     grid-area: description;
     margin: 8px 0 8px 4px;
