@@ -8,8 +8,6 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { AppTheme } from '../app-theme';
 
-
-
 function App() {
   const status = [{
     description: 'pau'
