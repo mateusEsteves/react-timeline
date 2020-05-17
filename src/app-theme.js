@@ -1,9 +1,9 @@
 export const AppTheme = {
-    primaryColor: 'blue',
+    primaryColor: '#58b368',
     secondaryColor: '',
-    inactiveColor: 'gray',
+    inactiveColor: '#b3bacb',
     textColor: 'black',
-    backgroundColor: 'white',
+    backgroundColor: '#1f232e',
     media: {
         smartphone: '(min-width: 360px)',
         desktop: '(min-width: 1024px)'

@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const TimelineContainer = styled.div`
     display: flex;
+    grid-area: timeline;
     flex-direction: column;
-    width: 100%;
     height: 100%;
 
     @media ${props => props.theme.media.desktop} {
+        width: 100%;
+        height: unset;
         flex-direction: row;
     }
 `;
