@@ -2,61 +2,59 @@ import React, { useState, useEffect } from 'react';
 import Timeline from './Timeline/Timeline';
 import styled from 'styled-components';
 
+import { ThemeProvider } from 'styled-components';
+import { AppTheme } from './app-theme';
 
 const AppWrapper = styled.div`
-  width: 100%;
-  height: 100px;
   padding: 32px;
+  width: 100px;
+  height: 100vh;
+  
+  @media ${props => props.theme.media.desktop} {
+    width: 100%;
+    height: 100px;
+  }
 `;
 
 function App() {
   const status = [{
-    description: "Pau",
-    checked: true
+    description: 'pau'
   }, {
-    description: "no",
-    checked: true
+    description: 'no'
   }, {
-    description: "cu",
-    checked: false
+    description: 'cu'
   }, {
-    description: "de",
-    checked: false
+    description: 'de'
   }, {
-    description: "quem",
-    checked: false
+    description: 'quem'
   }, {
-    description: "ta",
-    checked: false
+    description: 'ta'
   }, {
-    description: "lendo",
-    checked: false
+    description: 'lendo'
   }];
 
   const [checkedStatus, setCheckedStatus] = useState();
-  const [lastCheckedStatus, setLastCheckedStatus] = useState();
 
   useEffect(() => {
     setTimeout(() => {
-      setLastCheckedStatus(0);
       setCheckedStatus(2);
     }, 10);
   }, []);
 
   return (
-    <AppWrapper>
-      <Timeline
-        status={status}
-        checkedStatusIndex={checkedStatus}
-        lastStatusIndex={lastCheckedStatus}
-        timelineHeight={"32px"} />
+    <ThemeProvider theme={AppTheme}>
+      <AppWrapper>
 
-      <button onClick={() => {
-        setLastCheckedStatus(checkedStatus);
-        setCheckedStatus(checkedStatus + 1);
-      }}>+</button>
+        <Timeline
+          status={status}
+          checkedStatusIndex={checkedStatus}
+          milestoneSize={"32px"}
+          lineSize={"68px"} />
 
-    </AppWrapper>
+        {/* <button onClick={() => setCheckedStatus(checkedStatus + 1)}>+</button> */}
+
+      </AppWrapper>
+    </ThemeProvider>
   );
 }
 

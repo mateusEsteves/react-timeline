@@ -1,25 +1,48 @@
 import styled from 'styled-components';
 
-const ItemLineBase = styled.div`
-    transition: width 1s ease-out; 
+const ItemLineBase = styled.div`    
+    transition: height 1s ease-in-out;
     transition-delay: ${props => `${props.transitionDelay}s`};
-    border-bottom: solid 3px;
     box-sizing: border-box;
     display: inline-block;
+    margin: 0;
+
+    @media ${props => props.theme.media.desktop} {
+        transition: width 1s ease-out;
+        transition-delay: ${props => `${props.transitionDelay}s`};
+    }
 `;
 
-export const ItemLineBackground = styled(ItemLineBase)`
-    width: ${props => props.isChecked ? "0" : "100%"};
-    border-color: gray;
+export const ItemLineBackground = styled(ItemLineBase)`    
+    border-left: solid ${props => props.theme.inactiveColor} 3px;
+    height: ${props => props.isChecked ? "0" : "100%"};
+
+    @media ${props => props.theme.media.desktop} {
+        border-left: unset;
+        border-bottom: solid ${props => props.theme.inactiveColor} 3px;
+        width: ${props => props.isChecked ? "0" : "100%"};
+    }
 `;
 
-export const ItemLineChecked = styled(ItemLineBase)`
-    width: ${props => props.isChecked ? "100%" : "0"};
-    border-color: blue;
+export const ItemLineChecked = styled(ItemLineBase)`    
+    border-left: solid ${props => props.theme.primaryColor} 3px;
+    height: ${props => props.isChecked ? "100%" : "0"};
+
+    @media ${props => props.theme.media.desktop} {
+        border-left: unset;
+        border-bottom: solid ${props => props.theme.primaryColor} 3px;
+        width: ${props => props.isChecked ? "100%" : "0"};
+    }
 `;
 
 export const ItemLineContainer = styled.div`
-    margin: auto 0;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     overflow: hidden;
+
+    @media ${props => props.theme.media.desktop} {
+        margin: auto 0;
+        flex-direction: row;
+    }
 `;
